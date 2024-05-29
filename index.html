@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>Inflatio Analysis</title>
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.12.0/math.min.js"></script>
+	    <link rel="stylesheet" href="css/style.css">
+	</head>
+	
+	<body>
+	
+	<section class="main-content">
+		
+		<!-- Barra de Navegação -->
+		<div id="nav" class="navbar">
+	
+			<div class="nav-brand">
+				Inflatio Analysis
+			</div>
+	
+			<div class="nav-links">
+				<a href="#page1" class="nav-link">Domus</a>
+				<a href="#page2" class="nav-link">Analysis</a>
+				<a href="#page3" class="nav-link">Calculus</a>
+			</div>
+		</div>
+		
+	    <!-- Sobre -->
+	    <section id="page1" class="container page">
+	        <div class="domus">
+				<p>A SELIC, abreviação para Taxa Selic, constitui-se como a taxa básica de juros da economia brasileira. Estabelecida pelo Comitê de Política Monetária (COPOM), ela reflete o custo do dinheiro no mercado interbancário e serve como referência para diversas operações financeiras. A SELIC desempenha um papel crucial no controle da inflação e na condução da política monetária, sendo ajustada pelo Banco Central para influenciar a oferta de crédito e, consequentemente, o comportamento dos preços na economia.</p>
+				<p>Por outro lado, o IPCA, ou Índice Nacional de Preços ao Consumidor Amplo, representa um indicador vital na mensuração da inflação no Brasil. Elaborado pelo Instituto Brasileiro de Geografia e Estatística (IBGE), o IPCA acompanha a variação de preços de um conjunto diversificado de bens e serviços presentes no varejo, refletindo os padrões de consumo das famílias brasileiras. Atualmente, é considerado o índice oficial de inflação no país, oferecendo uma visão precisa das mudanças nos custos de vida.</p>
+				<p>A relação entre a SELIC e o IPCA desempenha um papel crucial na análise do cenário econômico. A taxa SELIC, ao ser utilizada como instrumento de controle da inflação, influencia diretamente o custo do crédito e o comportamento dos investidores. Quando o Banco Central eleva a SELIC, busca-se conter a demanda agregada e, por conseguinte, controlar a inflação. Contudo, tal medida pode impactar negativamente o consumo e o investimento. Assim, compreender a dinâmica entre a taxa de juros e a variação de preços, exemplificada pelo IPCA, é essencial para interpretar as nuances do panorama econômico brasileiro e antecipar possíveis desdobramentos.</p>
+	        </div>
+	    </section>
+	
+	    <!-- Analysis -->
+	    <section id="page2" class="container-fluid page">
+			
+	        <div class="painel-analysis">
+	            <!-- Controles do Gráfico -->
+	            <div class="controls">
+	                <!-- Formulário para selecionar o período analisado -->
+	                <form>
+					    <label for="periodo">Selecione o período:</label>
+					    <input type="number" style="width: 15#;" name="periodo" id="periodo" min="2" max="999" value="12" placeholder="Período">
+					</form>
+	            </div>
+	            <!-- Painel de Indicadores -->
+	            <div class="indicators">
+	                <div class="indicator"><span id="selicValue">0</span>Selic Agora</div>
+	                <div class="indicator"><span id="ipcaValue">0</span>IPCA 12m</div>
+	            </div>
+	        </div>
+
+			<!-- Painel de Analises -->
+			<div class="analytics">
+				<!-- Indicadores aqui -->
+				<div class="analytic">Média<span id="valorMedio">0</span></div>
+				<div class="analytic">Desvio Padrão<span id="desvioPadrao">0</span></div>
+				<!-- Adicionar Analises -->
+			</div>
+			
+			<!-- Gráfico de Linhas -->
+			<div id="lineChartContainer" style="width: 100%; max-width: 1200px; margin: 0 auto;">
+			    <div style="width: 100%;">
+					<!-- Gráfico IPCA -->
+			        <canvas id="ipcaCanvas" style="width: 100%;"></canvas>
+			    </div>
+			    <br />
+			    <div style="width: 50%; float: left;">
+					<!-- Gráfico Mudança -->
+			        <canvas id="ipcaMudCanvas" style="width: 100%;"></canvas>
+			    </div>
+			    
+			    <div style="width: 50%; float: left;">
+			        <!-- Gráfico Variancia -->
+			        <canvas id="ipcaVarCanvas" style="width: 100%;"></canvas>
+			    </div>
+			</div>
+	
+	    </section>
+	
+	    <!-- Calculus -->
+	    <section id="page3" class="container page">
+	        <div class="calculus">
+	            <!-- Documentação -->
+				<p>A análise de dados é um processo que envolve a obtenção, inspeção, limpeza, transformação e modelagem de dados com o objetivo de descobrir informações úteis, sugerir conclusões e apoiar a tomada de decisões. Com as ferramentas atuais, podemos coletar e tratar dados de maneira eficiente, transformando-os em informações significativas.</p>
+				
+				<h3>Obtenção dos Dados</h3>
+				<p>Para realizar a análise da inflação no Brasil, a obtenção de dados é um passo significativo. Neste projeto, optei por utilizar a API do Banco Central, uma fonte confiável e abrangente que fornece informações econômicas essenciais. A API oferece acesso a uma variedade de indicadores econômicos, incluindo índices de preços, taxas de câmbio e outros dados relevantes para a nossa análise de inflação.</p>
+				<p>A integração com a API do Banco Central permite que realizemos consultas específicas para obter séries temporais de dados relacionadas à inflação. Utilizamos endpoints dedicados para recuperar informações sobre índices de preços, como IPCA (Índice Nacional de Preços ao Consumidor Amplo), IPC-Fipe (Índice de Preços ao Consumidor da Fundação Instituto de Pesquisas Econômicas) e outros indicadores relevantes para o escopo do projeto.</p>
+				<p>Para mais detalhes sobre a estrutura da API, os parâmetros disponíveis e as práticas recomendadas, consulte a documentação oficial da API do Banco Central: <a href="https://www4.bcb.gov.br/pec/series/port/aviso.asp?frame=1." target="_blank">Sistema Gerenciador de Séries Temporais (SGS)</a></p>
+	 
+				<h3>Processamento dos Dados</h3>
+				<p>Na sequência da obtenção dos dados por meio da API do Banco Central, passamos por uma série de etapas essenciais: inspeção, limpeza, transformação e modelagem.</p>
+				<p><strong>Inspeção:</strong> Inicia-se a análise detalhada dos dados no formato JSON fornecido pela API. Nesse estágio, é realizada a avaliação da estrutura, a identificação de possíveis inconsistências e a compreensão da composição das séries temporais relacionadas à inflação.</p>
+				<p><strong>Limpeza:</strong> Posteriormente, os dados são tratados para lidar com eventuais valores ausentes, outliers ou inconsistências. Essa etapa é fundamental para garantir a integridade e confiabilidade das análises subsequentes, evitando distorções nos resultados.</p>
+				<p><strong>Transformação:</strong> Com os dados limpos, aplicam-se as transformações necessárias para atender às exigências específicas da análise. Isso pode envolver a conversão de unidades, normalização de escalas ou agregação de informações para simplificar a interpretação.</p>
+				<p><strong>Modelagem:</strong> A etapa de modelagem concentra-se na preparação dos dados para a construção de gráficos informativos. Utilizam-se funções e algoritmos especializados para representar visualmente as tendências da inflação ao longo do tempo, incluindo a escolha apropriada de gráficos, como séries temporais ou histogramas, para melhor expressar os padrões identificados.</p>
+				<p>O conjunto de funções responsáveis por essas operações é desenvolvido de maneira a garantir eficiência e precisão, proporcionando uma base sólida para a interpretação dos resultados. Após o processamento, os dados estão prontos para serem visualizados no gráfico, oferecendo insights valiosos para a compreensão da dinâmica da inflação no Brasil.</p>
+	        </div>
+	    </section>
+	    
+	</section>
+	
+	
+	<!-- Footer -->
+	<section id="footer" >
+	    <ul>
+			<li><a href="https://rmottanet.github.io" target="_blank" rel="noopener"><i class="fas fa-code"></i></a></li>
+	        <li><a href="https://github.com/rmottanet" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></li>
+	        <li><a href="https://gitlab.com/rmottanet" target="_blank" rel="noopener"><i class="fab fa-gitlab"></i></a></li>
+	        <li><a href="https://instagram.com/rmottanet" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a></li>
+	        <li><a href="https://www.linkedin.com/in/rmottanet/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></li>
+	    </ul>
+	</section>
+	
+	<script src="js/fetcher.js" defer></script>
+	<script src="js/calculus.js" defer></script>
+	<script src="js/analysis.js" defer></script>
+	<script src="js/main.js" defer></script>
+	
+	</body>
+</html>
