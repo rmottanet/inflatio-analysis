@@ -1,0 +1,276 @@
+/* reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* cores */
+:root {
+    --background-dark: #111;
+    --text-amber: #ffbf00;
+}
+
+/* corpo da página */
+body {
+	margin: 0;
+    font-family: Arial, sans-serif; 
+    background-color: var(--background-dark);
+    color: var(--text-amber);
+}
+
+/* titles */
+h1, h2, h3 {
+    color: var(--text-amber); 
+	margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+
+/* parágrafos */
+p {
+    margin-bottom: 1em; 
+    line-height: 1.5; 
+}
+
+/* links */
+a {
+    color: var(--text-amber);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.calculus a {
+    filter: brightness(1.3) saturate(1.2);
+    transition: filter 0.3s ease;
+}
+
+.calculus a:hover {
+    filter: brightness(1) saturate(1);
+}
+
+.main-content {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* barra de navegação */
+.navbar {
+    background-color: var(--background-dark);
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.nav-brand {
+    color: var(--text-amber);
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: auto; 
+}
+
+.nav-link {
+    color: var(--text-amber);
+    text-decoration: none;
+    margin-left: 15px; 
+    transition: filter 0.3s ease-in-out; 
+}
+
+.nav-link:first-child {
+    margin-left: auto; 
+}
+
+.nav-link:hover {
+    color: var(--text-amber);
+    text-decoration: none;
+    filter: brightness(1.3) saturate(1);
+}
+
+/* Contêiner principal do dashboard */
+.container {
+    max-width: 800px;
+    margin: 0 auto;   
+    display: none;    
+}
+
+.container-fluid {
+    padding-right: 0;  
+    padding-left: 0;   
+}
+
+/* Painel Analysis */
+.painel-analysis {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 80%; 
+    margin: 0 auto; 
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+}
+
+.indicators {
+    display: flex;
+    gap: 20px; 
+    text-align: center;
+    margin-top: 20px;
+}
+
+.indicator {
+    color: var(--text-amber);
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    font-size: 14px; 
+}
+
+.indicator span {
+    display: block;
+    font-size: 24px; 
+    margin-top: 5px; 
+}
+
+.analytics {
+    display: flex;
+    justify-content: center; 
+    gap: 20px; 
+    margin-top: 20px;
+    align-items: center; 
+}
+
+.analytic {
+    color: var(--text-amber);
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    font-size: 14px; 
+}
+
+.analytic span {
+    display: block;
+    font-size: 24px; 
+    margin-top: 5px; 
+}
+
+#ipcaCanvas {
+    width: 100%;
+    height: 400px; 
+}
+
+#ipcaMudCanvas {
+    width: 100%;
+    height: 400px; 
+}
+
+#ipcaVarCanvas {
+    width: 100%;
+    height: 400px; 
+}
+
+/* botões */
+.btn {
+    background-color: var(--background-dark);
+    color: var(--text-amber);
+    border: 1px solid var(--text-amber);
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: var(--text-amber);
+    color: var(--background-dark);
+}
+
+.btn, .container {
+    background-color: var(--background-dark);
+    color: var(--text-amber);
+}
+
+.btn:hover {
+    background-color: var(--text-amber);
+    color: var(--background-dark);
+}
+
+/* page controls */
+.page {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    min-height: calc(100vh - 70px);
+    opacity: 1; 
+    transition: opacity 0.5s ease-in-out; 
+}
+
+.page-hidden {
+
+    opacity: 0;        
+    filter: blur(5px);  
+    pointer-events: none; 
+}
+
+.domus {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+}
+
+/* footer */
+#footer {
+    position: relative; 
+    bottom: 0;      
+    width: 100%;    
+    padding: 1em;     
+    text-align: center; 
+    background-color: var(--background-dark); 
+    clear: both; 
+}
+
+/* Estiliza os ícones no rodapé */
+#footer ul {
+    list-style: none;       
+    margin: 0;            
+    padding: 0;            
+    display: flex;        
+    justify-content: center; 
+    align-items: center;    
+}
+
+#footer li {
+    display: inline-block; 
+    margin-right: 10px;    
+}
+
+#footer a {
+    text-decoration: none;   
+    color: var(--text-amber);
+}
+
+#footer i {
+    color: var(--text-amber); 
+    margin-right: 10px;      
+}
+
+/* Estiliza os ícones */
+.fab, .fa, .fa-solid {
+    font-size: 1.2em;    
+    color: var(--text-amber); 
+    margin-right: 10px; 
+    transition: filter 0.3s ease-in-out; 
+}
+
+.fab:hover, .fa:hover, .fa-solid:hover {
+    color: var(--text-amber); 
+    text-decoration: none;    
+    filter: brightness(1.3) saturate(1); 
+}
